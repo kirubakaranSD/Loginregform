@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Document Storage</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <h1>My Documents</h1>
+            <div class="header-actions">
+                <span id="userName" class="user-name"></span>
+                <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+            </div>
+        </header>
+
+        <div class="dashboard-actions">
+            <button id="uploadBtn" class="btn btn-primary">Upload Document</button>
+            <button id="generateLinkBtn" class="btn btn-success">Generate Secure Link</button>
+        </div>
+
+        <div id="documentsList" class="documents-list">
+            <div class="loading">Loading documents...</div>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <!-- Generate Link Modal -->
+    <div id="linkModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Generate Secure Link</h2>
+            <form id="linkForm">
+                <div class="form-group">
+                    <label>Select Documents:</label>
+                    <div id="documentCheckboxes" class="checkbox-group"></div>
+                </div>
+                <div class="form-group">
+                    <label for="linkPassword">Password (Optional)</label>
+                    <input type="password" id="linkPassword" name="linkPassword" placeholder="Leave empty for no password">
+                </div>
+                <div class="form-group">
+                    <label for="expiresIn">Expires In (Hours)</label>
+                    <input type="number" id="expiresIn" name="expiresIn" value="24" min="1" max="168">
+                </div>
+                <button type="submit" class="btn btn-primary">Generate Link</button>
+            </form>
+            <div id="generatedLink" class="generated-link"></div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+
